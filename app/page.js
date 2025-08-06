@@ -222,7 +222,7 @@ export default function Portfolio() {
             </h2>
             <p className="text-lg leading-relaxed tracking-wide mb-4">
               Eager to embrace challenging roles within the IT sector that
-              foster professional growth and innovation. Committed to
+              faster professional growth and innovation. Committed to
               continuously expanding my technical expertise and making
               meaningful contributions to organizational success through
               collaboration and dedication.
