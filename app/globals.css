@@ -1,0 +1,71 @@
+@import "tailwindcss";
+
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #ededed;
+  }
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-geist-sans), Arial, Helvetica, sans-serif;
+}
+code,
+pre {
+  font-family: var(--font-geist-mono), Menlo, "Ubuntu Mono", "Courier New",
+    monospace;
+}
+/* Shining animation keyframes */
+@keyframes shine {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+/* Shiny animated background */
+.animate-shine {
+  background: linear-gradient(
+    270deg,
+    var(--custom-blue),
+    var(--custom-blue-light),
+    var(--custom-blue),
+    var(--custom-blue-light),
+    var(--custom-blue)
+  );
+  background-size: 400% 400%;
+  animation: shine 6s ease infinite;
+}
+
+/* Utility color classes */
+.bg-custom-blue {
+  background-color: var(--custom-blue) !important;
+}
+
+.text-custom-blue {
+  color: var(--custom-blue) !important;
+}
+
+.border-custom-blue {
+  border-color: var(--custom-blue) !important;
+}
+
+.hover-bg-custom-blue:hover {
+  background-color: var(--custom-blue) !important;
+}
