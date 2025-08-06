@@ -1,5 +1,6 @@
 "use client";
 import React, { useState } from "react";
+import { Download } from "lucide-react";
 import AnimatedProgressBar from "./AnimatedProgressBar";
 import {
   Mail,
@@ -228,16 +229,17 @@ export default function Portfolio() {
             </p>
 
             {/* Buttons container with gap */}
-            <div className="mt-8 flex justify-center lg:justify-start gap-4">
+            <div className="mt-8 flex flex-col sm:flex-row justify-center lg:justify-start gap-4">
               {/* Download Resume Button */}
               <a
                 href="/resume-prachisable.pdf"
                 download
-                className="inline-block bg-blue-600 hover-bg-custom-blue text-white font-semibold px-6 py-3 rounded-lg shadow-lg transition"
+                className="inline-flex items-center justify-center bg-blue-600 hover-bg-custom-blue text-white font-semibold px-6 py-3 rounded-lg shadow-lg transition"
                 aria-label="Download Resume"
                 target="_blank"
                 rel="noopener noreferrer"
               >
+                <Download className="mr-2 h-5 w-5" />
                 Download Resume
               </a>
 
@@ -246,7 +248,7 @@ export default function Portfolio() {
                 href="https://wa.me/9309408498?text=Hello%20Prachi"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex bg-green-600 hover:bg-green-700 text-white font-semibold px-6 py-3 rounded-lg shadow-lg transition items-center space-x-2"
+                className="inline-flex justify-center items-center bg-green-600 hover:bg-green-700 text-white font-semibold px-6 py-3 rounded-lg shadow-lg transition space-x-2 w-full sm:w-auto"
                 aria-label="Connect on WhatsApp"
               >
                 <AiOutlineWhatsApp size={24} />
