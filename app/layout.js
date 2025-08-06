@@ -15,12 +15,14 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
+export const metadataBase = new URL("https://prachi-sable.vercel.app");
+
 export const metadata = {
   title: "Prachi Sable – Portfolio",
   description:
     "Portfolio and resume of Prachi Sable: Software Engineer specializing in Frontend, React, Next.js and more.",
   icons: {
-    icon: "https://prachi-sable.vercel.app/favicon.ico",
+    icon: "/favicon.ico", // use relative path under /public
   },
   openGraph: {
     title: "Prachi Sable – Portfolio",
@@ -38,6 +40,13 @@ export const metadata = {
     ],
     locale: "en_US",
     type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Prachi Sable – Portfolio",
+    description:
+      "Portfolio and resume of Prachi Sable: Software Engineer specializing in Frontend, React, Next.js and more.",
+    images: ["/prachi1.png"],
   },
 };
 
