@@ -15,7 +15,7 @@ import {
   Award,
   Heart,
 } from "lucide-react";
-
+import { AiOutlineWhatsApp } from "react-icons/ai";
 export default function Portfolio() {
   const [activeSection, setActiveSection] = useState("about");
 
@@ -25,6 +25,7 @@ export default function Portfolio() {
     { id: "projects", label: "Projects", icon: Code },
     { id: "education", label: "Education", icon: GraduationCap },
     { id: "skills", label: "Skills", icon: Award },
+    { id: "contact", label: "Contact", icon: Phone },
   ];
 
   const technicalSkills = [
@@ -137,7 +138,7 @@ export default function Portfolio() {
               >
                 Prachi Sable
               </button>
-              <div className="hidden md:flex space-x-10 font-medium text-gray-300">
+              <div className="hidden lg:flex space-x-4 font-medium text-gray-300">
                 {navItems.map((item) => {
                   const Icon = item.icon;
                   const isActive = activeSection === item.id;
@@ -213,27 +214,45 @@ export default function Portfolio() {
 
           {/* Right Column */}
           {/* Right Column */}
+
           <div className="text-gray-300 max-w-xl mx-auto lg:mx-0 relative z-10 text-center lg:text-left">
             <h2 className="text-3xl font-extrabold mb-6 text-white tracking-wide">
               Objective
             </h2>
-            <p className="text-lg leading-relaxed tracking-wide">
-              Seeking dynamic, challenging opportunities in IT with a strong
-              focus on growth and innovation. I am passionate about learning new
-              technologies and contributing to organizational success with
-              dedication and teamwork.
+            <p className="text-lg leading-relaxed tracking-wide mb-4">
+              Eager to embrace challenging roles within the IT sector that
+              foster professional growth and innovation. Committed to
+              continuously expanding my technical expertise and making
+              meaningful contributions to organizational success through
+              collaboration and dedication.
             </p>
-            {/* Download Resume Button */}
-            <a
-              href="/resume-prachisable.pdf"
-              download
-              className="inline-block mt-8 bg-blue-600 hover-bg-custom-blue text-white font-semibold px-6 py-3 rounded-lg shadow-lg transition"
-              aria-label="Download Resume"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Download Resume
-            </a>
+
+            {/* Buttons container with gap */}
+            <div className="mt-8 flex justify-center lg:justify-start gap-4">
+              {/* Download Resume Button */}
+              <a
+                href="/resume-prachisable.pdf"
+                download
+                className="inline-block bg-blue-600 hover-bg-custom-blue text-white font-semibold px-6 py-3 rounded-lg shadow-lg transition"
+                aria-label="Download Resume"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Download Resume
+              </a>
+
+              {/* WhatsApp Connect Button */}
+              <a
+                href="https://wa.me/9309408498?text=Hello%20Prachi"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex bg-green-600 hover:bg-green-700 text-white font-semibold px-6 py-3 rounded-lg shadow-lg transition items-center space-x-2"
+                aria-label="Connect on WhatsApp"
+              >
+                <AiOutlineWhatsApp size={24} />
+                <span>Let&apos;s Connect</span>
+              </a>
+            </div>
           </div>
         </section>
 
@@ -577,6 +596,139 @@ export default function Portfolio() {
             </div>
           </div>
         </section>
+        {/* Contact Section */}
+        <section
+          id="contact"
+          className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 py-20 text-gray-300"
+        >
+          <h2 className="text-4xl font-extrabold text-custom-blue mb-10 border-b-4 border-white pb-3 tracking-wide">
+            Contact Me
+          </h2>
+
+          <form
+            onSubmit={(e) => {
+              e.preventDefault();
+              // handle WhatsApp message send
+              const formData = new FormData(e.target);
+              const name = formData.get("name");
+              const company = formData.get("company");
+              const role = formData.get("role");
+              const location = formData.get("location");
+              const message = formData.get("message");
+
+              const whatsappMessage = `Name: ${name}%0ACompany: ${company}%0ARole: ${role}%0ALocation: ${location}%0AMessage: ${message}`;
+              const whatsappNumber = "919309408498"; // replace with your number
+
+              // Open WhatsApp chat in new tab with prefilled message
+              window.open(
+                `https://wa.me/${whatsappNumber}?text=${whatsappMessage}`,
+                "_blank"
+              );
+            }}
+            className="max-w-3xl mx-auto bg-gray-900 rounded-3xl shadow-lg p-8 sm:p-12"
+          >
+            <div className="grid grid-cols-1 gap-6 sm:grid-cols-2">
+              <div>
+                <label
+                  htmlFor="name"
+                  className="block mb-2 font-semibold text-white"
+                >
+                  Name *
+                </label>
+                <input
+                  type="text"
+                  id="name"
+                  name="name"
+                  required
+                  placeholder="Your Name"
+                  className="w-full rounded-md border border-gray-700 bg-gray-800 px-4 py-3 text-white focus:border-custom-blue focus:outline-none"
+                />
+              </div>
+
+              <div>
+                <label
+                  htmlFor="company"
+                  className="block mb-2 font-semibold text-white"
+                >
+                  Company Name
+                </label>
+                <input
+                  type="text"
+                  id="company"
+                  name="company"
+                  placeholder="Company (optional)"
+                  className="w-full rounded-md border border-gray-700 bg-gray-800 px-4 py-3 text-white focus:border-custom-blue focus:outline-none"
+                />
+              </div>
+
+              <div>
+                <label
+                  htmlFor="role"
+                  className="block mb-2 font-semibold text-white"
+                >
+                  Role *
+                </label>
+                <select
+                  id="role"
+                  name="role"
+                  required
+                  className="w-full rounded-md border border-2 border-gray-700 bg-gray-800 px-4 py-3 text-white focus:border-custom-blue focus:outline-none"
+                  defaultValue=""
+                >
+                  <option value="" disabled>
+                    Select role u want to hire for
+                  </option>
+                  <option>Software Engineer</option>
+                  <option>Frontend Engineer</option>
+                  <option>Full Stack Developer</option>
+                  <option>Freelancer</option>
+                  <option>Others</option>
+                </select>
+              </div>
+
+              <div>
+                <label
+                  htmlFor="location"
+                  className="block mb-2 font-semibold text-white"
+                >
+                  Location *
+                </label>
+                <input
+                  type="text"
+                  id="location"
+                  name="location"
+                  required
+                  placeholder="City, Country"
+                  className="w-full rounded-md border border-gray-700 bg-gray-800 px-4 py-3 text-white focus:border-custom-blue focus:outline-none"
+                />
+              </div>
+            </div>
+
+            <div className="mt-6">
+              <label
+                htmlFor="message"
+                className="block mb-2 font-semibold text-white"
+              >
+                Message
+              </label>
+              <textarea
+                id="message"
+                name="message"
+                rows="4"
+                placeholder="Write your message here..."
+                className="w-full resize-none rounded-md border border-gray-700 bg-gray-800 px-4 py-3 text-white focus:border-custom-blue focus:outline-none"
+              />
+            </div>
+
+            <button
+              type="submit"
+              className="mt-8 w-full rounded-lg bg-custom-blue px-6 py-3 font-semibold text-white shadow-lg transition hover:bg-blue-700 sm:w-auto"
+              aria-label="Send message via WhatsApp"
+            >
+              Connect
+            </button>
+          </form>
+        </section>
 
         {/* Footer */}
         <footer className="bg-gray-900 text-gray-400 py-14 mt-16 text-center">
@@ -645,7 +797,7 @@ export default function Portfolio() {
         </footer>
 
         {/* Mobile Navigation */}
-        <div className="fixed bottom-6 left-6 right-6 md:hidden z-50">
+        <div className="fixed bottom-6 left-6 right-6 lg:hidden z-50">
           <nav className="bg-gray-800 rounded-full shadow-lg border border-white px-2 py-2 flex justify-around text-gray-400">
             {navItems.map((item) => {
               const Icon = item.icon;

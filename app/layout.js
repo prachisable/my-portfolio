@@ -20,17 +20,17 @@ export const metadata = {
   description:
     "Portfolio and resume of Prachi Sable: Software Engineer specializing in Frontend, React, Next.js and more.",
   icons: {
-    icon: "/favicon.ico",
+    icon: "https://prachi-sable.vercel.app/favicon.ico",
   },
   openGraph: {
     title: "Prachi Sable – Portfolio",
     description:
       "Portfolio and resume of Prachi Sable: Software Engineer specializing in Frontend, React, Next.js and more.",
-    url: "https://yourdomain.com/",
+    url: "https://prachi-sable.vercel.app/",
     siteName: "Prachi Sable Portfolio",
     images: [
       {
-        url: "/prachi1.png",
+        url: "https://prachi-sable.vercel.app/prachi1.png",
         width: 600,
         height: 600,
         alt: "Prachi Sable Portrait",
